@@ -22,6 +22,8 @@ public:
 
     size_t capacity() const;
     size_t size() const;
+    ValueType* begin();
+    ValueType* end();
     float loadFactor();
 
     // доступ к элементу,

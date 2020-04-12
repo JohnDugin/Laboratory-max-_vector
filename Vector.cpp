@@ -138,6 +138,14 @@ size_t Vector::size() const {
     return _size;
 }
 
+ValueType* Vector::begin(){
+    return _data;
+}
+
+ValueType* Vector::end(){
+    return _data + _size;
+}
+
 float Vector::loadFactor() {
     if ((_size / _capacity) > 1) {
         _capacity *= _cf;
