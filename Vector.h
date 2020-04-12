@@ -12,8 +12,8 @@ using ValueType = double;
 
 class Vector {
 public:
-    Vector(size_t size = 0, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 1.5f);
-    Vector(size_t size, ValueType value, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 1.5f);
+    Vector(size_t size = 0, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 1.5f, int delta = 3);
+    Vector(size_t size, ValueType value, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 1.5f, int delta = 3);
     Vector(const Vector& copy); //Готово
     Vector& operator= (const Vector& copy);
     ~Vector();
@@ -67,6 +67,7 @@ private:
     ValueType* _data;
     size_t _size;
     size_t _capacity;
-    float _coef;
-    ResizeStrategy _strategy;
+    float _cf;
+    int _delta;
+    ResizeStrategy _rStrategy;
 };
