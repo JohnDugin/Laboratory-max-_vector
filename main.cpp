@@ -5,9 +5,10 @@ using namespace std;
 
 int main() {
 
-    Vector l1;
-
     //ТЕСТЫ------------------------------------------------
+
+    //auto coef = 2;
+    //Vector l1(10, ResizeStrategy::Multiplicative, coef);
 
     /*for(int i = -100; i < 100; i++)
         l1.pushBack(100);
@@ -17,7 +18,7 @@ int main() {
     l1.pushBack(2);
     l1.pushFront(3);
     l1.pushBack(4);
-     l1.print();*/
+    l1.print();*/
 
     /*l1.insert(0,0);
     l1.insert(1,1);
@@ -29,9 +30,11 @@ int main() {
     /*l1.pushBack(0);
     l1.pushBack(1);
     l1.pushBack(2);
+    l1.print();
     Vector l2;
     l2.pushBack(-1);
-    l2.insert(0, l1);
+    l2.print();
+    l2.insert(1, l1);
     l2.print();*/
 
     /*l1.pushBack(0);
@@ -98,7 +101,16 @@ int main() {
     l1.print();
     l2.print();*/
 
+    auto coef = 2;
+    Vector v1(10, 1, ResizeStrategy::Multiplicative, coef);
+    cout << "v1:\n";
+    v1.print();
+    cout << endl;
 
+    v1.resize(19);
+    cout << "v1:\n";
+    v1.print();
+    cout << endl;
 
     return 0;
 }

@@ -12,8 +12,8 @@ using ValueType = double;
 
 class Vector {
 public:
-    Vector(size_t size = 0, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 1.5f, int delta = 3);
-    Vector(size_t size, ValueType value, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 1.5f, int delta = 3);
+    Vector(size_t size = 0, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 2.0f);
+    Vector(size_t size, ValueType value, ResizeStrategy = ResizeStrategy::Multiplicative, float coef = 2.0f);
     Vector(const Vector& copy); //Готово
     Vector& operator= (const Vector& copy);
     ~Vector();
@@ -28,12 +28,14 @@ public:
 
     // доступ к элементу,
     // должен работать за O(1)
-    ValueType& operator[] (const size_t i) const;
+    ValueType& operator[] (const size_t i) const; // готово
 
     // добавить в конец,
     // должен работать за amort(O(1))
-    void pushBack(const ValueType& value);
+    void pushBack(const ValueType& value); // готово
+
     void pushFront(const ValueType& value);
+
     // вставить,
     // должен работать за O(n)
     void insert(const size_t i, const ValueType& value); // версия для одного значения
@@ -44,7 +46,7 @@ public:
     void popBack();
     // удалить
     // должен работать за O(n)
-    void erase( const size_t i);
+    void erase( const size_t i); // готово
     void erase(const size_t i, const size_t len); // удалить len элементов начиная с i
 
     // найти элемент,
@@ -59,7 +61,7 @@ public:
     // изменить размер
     // если новый размер больше текущего, то новые элементы забиваются дефолтными значениями
     // если меньше - обрезаем вектор
-    void resize(const size_t size, const ValueType = 0.0);
+    void resize(const size_t size, const ValueType dflt = 0.0);
 
     // очистка вектора, без изменения capacity
     void clear();
@@ -70,6 +72,5 @@ private:
     size_t _size;
     size_t _capacity;
     float _cf;
-    int _delta;
     ResizeStrategy _rStrategy;
 };
